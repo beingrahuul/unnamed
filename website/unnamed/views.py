@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm, CompleteProfile
 from django.contrib.auth import authenticate, login, logout
-
+from .models import UserData
 # Create your views here.
 
 SITE_NAME = 'Unnamed'
@@ -112,4 +112,5 @@ def logoutUser(request):
 
     logout(request)
     return redirect('login')
+
 
