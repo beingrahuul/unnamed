@@ -1,0 +1,47 @@
+:root {
+  --primary: #555BFF;
+  --secondary: #22D2A0;
+  --background: #a6d6d6;
+}
+
+.card {
+  background-color: var(--background);
+  display: block;
+  width: 300px;
+  min-height: 90px;
+  border: 3px solid var(--primary);
+  padding: 15px;
+  margin: calc(50vh - 45px) auto 0 auto;
+  box-shadow: 10px -10px 0 -3px white, 10px -10px 0 0px #1FC11B,
+              20px -20px 0 -3px white, 20px -20px 0 0 #FFD913,
+              30px -30px 0 -3px white, 30px -30px 0 0 #FF9C55,
+              40px -40px 0 -3px white, 40px -40px 0 0 #FF5555;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: box-shadow 1s, left 1s, top 1s;
+}
+
+.card:hover {
+  box-shadow: 0 0 0 -3px white, 0 0 0 0px #1FC11B,
+    0 0 0 -3px white, 0 0 0 0px  #FFD913,
+    0 0 0 -3px white, 0 0 0 0px  #FF9C55,
+    0 0 0 -3px  white, 0 0 0 0px  #FF5555;
+  top: -40px;
+  left: 40px;
+}
+
+.card p {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  font-weight: 1000;
+}
+
+.card h2 {
+  font-size: 14px;
+  font-family: "Archivo Black", "Archivo", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}

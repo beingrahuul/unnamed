@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{Title}}</title>
+    <link rel="stylesheet" href="{% static 'css/complete_profile.css' %}">
+</head>
+<body>
+<div class="main">
+    <div class="heading">
+        <h1>Complete Your Profile</h1>
+    </div>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.first_name.label }}
+    {{ form.first_name }}
+
+    {{ form.last_name.label }}
+    {{ form.last_name }}
+
+    <button type="submit">Submit</button>
+</form>
+{{ request.user }}
+<a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

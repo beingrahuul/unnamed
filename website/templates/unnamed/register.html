@@ -1,0 +1,27 @@
+{% include "unnamed/base.html" %}
+
+{% load static %}
+
+{% block navbar%}
+{% include 'unnamed/navbar.html' %}
+{% endblock %}
+
+<div class="zz-2">
+	<div class="inside_container-2">
+		<form method="POST" action="">
+			{% csrf_token %}
+
+            <h1 class="hell">Register</h1>
+			<label>Username:</label><br>
+			{{form.username}}<br>
+  			<label>Password:</label><br>
+  			{{form.password1}}<br>
+            <label>Repeat Password:</label><br>
+  			{{form.password2}}<br>
+            <label>E-mail:</label><br>
+  			{{form.email}}<br>
+			<button type="submit" class="lgn-btn">Register</button>
+		</form>
+		{{form.errors}}
+	</div>
+</div>

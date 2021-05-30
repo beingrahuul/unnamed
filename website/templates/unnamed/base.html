@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title_name }}</title>
+    <script src="{% static 'js/navbar.js' %}"></script>
+    {% static "" as baseUrl %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{{ baseUrl }}css/{{ title_name }}.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+    <link rel="stylesheet" href="{% static 'css/button.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
+</head>
+<body>
+{% block navbar%}
+{% endblock %}
+{% block card%}
+{% endblock %}
+{% block button%}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,49 @@
+.zz-2{
+  padding: 200px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.hell {
+
+ margin-bottom: 10px;
+
+}
+
+.inside_container-2{
+  display: flex;
+  flex-wrap: nowrap;
+  height: 80vh;
+  width: 60vw;
+  background-color: #005792;
+  border: 5px solid #a6d6d6;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+form label{
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+form input{
+  height: 40px;
+  width: 400px;
+  margin: 10px 0;
+  padding: 8px 5px;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+.lgn-btn{
+  text-decoration: none;
+  padding: 10px 40px;
+  font-size: 1.10rem;
+  position: relative;
+}

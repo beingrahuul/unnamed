@@ -1,0 +1,21 @@
+{% include "unnamed/base.html" %}
+
+
+{% load static %}
+{% block navbar%}
+{% include 'unnamed/navbar.html' %}
+{% endblock %}
+
+<div class="zz">
+	<div class="inside_container">
+		<form method="POST" action="">
+			{% csrf_token %}
+			<label for="username">Username:</label><br>
+			<input type="text" id="username" name="username"><br>
+  			<label for="password">Password:</label><br>
+  			<input type="password" id="password" name="password"><br>
+			<button type="submit" class="lgn-btn">Login</button>
+		</form>
+
+	</div>
+</div>
