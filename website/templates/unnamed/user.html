@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{request.user.first_name}} {{request.user.last_name}}</title>
+    <link rel="stylesheet" href="{% static 'css/complete_profile.css' %}">
+</head>
+<body>
+
+<p>{{request.user.email}}</p>
+<p>{{request.user.first_name}}</p>
+<p><a href="{% url 'change_name' %}">Change name</a></p>
+<a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

@@ -26,16 +26,44 @@ def User(request):
 
 def CompleteProfilePage(request):
 
-    form = CompleteProfile()
+    if request.method == 'POST':
+        form = CompleteProfile(request.POST, instance=request.user)
 
+        if form.is_valid():
+            form.save()
+            return redirect('user')
 
+    else:
+        form = CompleteProfile(instance=request.user)
 
     context = {
         'form': form,
-        'Title': 'Complete your profile'
+        'Title': 'Complete your profile',
+        'user': request.user
     }
 
     return render(request, 'unnamed/complete.html', context=context)
+
+
+def ChangeName(request):
+
+    if request.method == 'POST':
+        form = CompleteProfile(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('user')
+
+    else:
+        form = CompleteProfile(instance=request.user)
+
+    context = {
+        'form': form,
+        'Title': 'Edit profile',
+        'user': request.user
+    }
+
+    return render(request, 'unnamed/change_name.html', context=context)
 
 
 def loginPage(request):

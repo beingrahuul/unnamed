@@ -10,7 +10,7 @@
 <body>
 <div class="main">
     <div class="heading">
-        <h1>Complete Your Profile</h1>
+        <h1>Change Name</h1>
     </div>
     <div class="form-container">
         <form method="POST">
@@ -26,6 +26,7 @@
     </div>
 </div>
 <p>{{user.email}}</p>
+<p><a href="{% url 'user' %}">Cancel</a></p>
 <a href="{% url 'logout' %}">Logout</a>
 </body>
 </html>

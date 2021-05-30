@@ -9,5 +9,6 @@ urlpatterns = [
     path('register/', registerPage, name='register'),
     path('user/', User, name='user'),
     path('complete_profile/', CompleteProfilePage, name='complete_profile'),
+    path('change_name/', ChangeName, name='change_name'),
 
 ]
