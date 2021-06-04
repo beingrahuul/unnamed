@@ -5,13 +5,26 @@
 <head>
     <meta charset="UTF-8">
     <title>{{request.user.first_name}} {{request.user.last_name}}</title>
-    <link rel="stylesheet" href="{% static 'css/complete_profile.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/user.css' %}">
+    <link rel = "icon" href ="{% static 'images/logo.png' %}"
+        type = "image/x-icon">
 </head>
 <body>
 
+<div class="fixed-navbar">
+    <a href="#home" class="logo">Home</a>
+    <ul>
+        <li><a href="{% url 'change_name' %}">Setting</a></li>
+        <li><a href="#name">{{request.user.first_name}}</a></li>
+    </ul>
+</div>
+<div class="main-content">
 <p>{{request.user.email}}</p>
 <p>{{request.user.first_name}}</p>
 <p><a href="{% url 'change_name' %}">Change name</a></p>
 <a href="{% url 'logout' %}">Logout</a>
+</div>
 </body>
 </html>

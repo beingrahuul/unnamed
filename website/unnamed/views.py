@@ -69,10 +69,10 @@ def ChangeName(request):
 def loginPage(request):
 
     if request.method == 'POST':
-        username = request.POST.get('username')
+        email = request.POST.get('email')
         password = request.POST.get('password')
 
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, email=email, password=password)
 
         if user is not None:
             login(request, user)
@@ -93,9 +93,9 @@ def registerPage(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(request, email=email, password=password)
             login(request, user)
             return redirect('complete_profile')
 

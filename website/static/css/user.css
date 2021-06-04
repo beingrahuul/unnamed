@@ -1,0 +1,52 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Archivo', sans-serif;
+}
+
+.fixed-navbar {
+  overflow: hidden;
+  background-color: #71c9ce;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.fixed-navbar ul li{
+  position: relative;
+  list-style: none;
+}
+
+.fixed-navbar ul li a {
+  float: right;
+  display: block;
+  color: #231e23;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 1000;
+}
+
+.logo{
+  float: left;
+  display: block;
+  color: #231e23;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 1000;
+}
+
+/* Change background on mouse-over */
+.fixed-navbar a:hover {
+  background: #e3fdfd;
+  color: #d99879;
+}
+
+.main-content{
+  margin-top: 50px; /* Add a top margin to avoid content overlay */
+}
