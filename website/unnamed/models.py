@@ -38,11 +38,11 @@ class MyAccountManager(BaseUserManager):
 
 
 def get_profile_image_filepath(self):
-    return f'profile_images/{str(self.pk)}/profile_image.png'
+    return '/'
 
 
 def get_default_profile_image():
-    return '/images/logo.png'
+    return 'logo.png'
 
 
 class UserData(AbstractBaseUser, PermissionsMixin):
@@ -56,7 +56,7 @@ class UserData(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    profile_image = models.ImageField(max_length=255, upload_to=get_profile_image_filepath, null=True, blank=True,
+    profile_image = models.ImageField(max_length=255, upload_to="", null=True, blank=True,
                                       default=get_default_profile_image)
     hide_email = models.BooleanField(default=True)
     bio = models.CharField(max_length=256, blank=True)
@@ -75,5 +75,10 @@ class UserData(AbstractBaseUser, PermissionsMixin):
     def has_module_perms(self, app_label):
         return True
 
-    def get_profile_image_filename(self):
-        return str(self.profile_image)[str(self.profile_image).index(f'profile_images/{str(self.pk)}/'):]
+
+class ImageModel(models.Model):
+    title = models.CharField(max_length=200)
+    img = models.ImageField(upload_to="")
+
+    def __str__(self):
+        return self.title

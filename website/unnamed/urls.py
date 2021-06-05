@@ -10,5 +10,6 @@ urlpatterns = [
     path('user/', User, name='user'),
     path('complete_profile/', CompleteProfilePage, name='complete_profile'),
     path('change_name/', ChangeName, name='change_name'),
-
+    path('image/', Image, name='image'),
+    path('search/', Search, name='search'),
 ]

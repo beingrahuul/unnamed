@@ -1,10 +1,28 @@
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm, CompleteProfile
+from .forms import RegistrationForm, CompleteProfile, ImageUploadForm
 from django.contrib.auth import authenticate, login, logout
-from .models import UserData
+from .models import UserData, ImageModel
 # Create your views here.
 
 SITE_NAME = 'Unnamed'
+
+
+def Image(request):
+
+    if request.method == "POST":
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            name = form.cleaned_data.get("name")
+            img = form.cleaned_data.get("image")
+            obj = ImageModel.objects.create(title=name, img=img)
+            obj.save()
+            print('hello')
+        else:
+            form = ImageUploadForm()
+    context = {
+        'form': ImageUploadForm(),
+    }
+    return render(request, 'unnamed/image.html', context=context)
 
 
 def home(request):
@@ -27,7 +45,7 @@ def User(request):
 def CompleteProfilePage(request):
 
     if request.method == 'POST':
-        form = CompleteProfile(request.POST, instance=request.user)
+        form = CompleteProfile(request.POST, request.FILES, instance=request.user)
 
         if form.is_valid():
             form.save()
@@ -48,7 +66,7 @@ def CompleteProfilePage(request):
 def ChangeName(request):
 
     if request.method == 'POST':
-        form = CompleteProfile(request.POST, instance=request.user)
+        form = CompleteProfile(request.POST, request.FILES, instance=request.user)
 
         if form.is_valid():
             form.save()
@@ -114,3 +132,25 @@ def logoutUser(request):
     return redirect('login')
 
 
+def Search(request):
+
+    context = {}
+
+    if request.method == "GET":
+
+        search_query = request.GET.get("q")
+
+        if len(search_query) > 0:
+
+            search_result = UserData.objects.filter(email__icontains=search_query)\
+                .filter(username__icontains=search_query).distinct()
+
+            accounts = []
+
+            for account in search_result:
+
+                accounts.append((account, False))
+
+            context['accounts'] = accounts
+
+    return render(request, 'unnamed/search.html', context=context)

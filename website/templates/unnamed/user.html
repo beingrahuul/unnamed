@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/user.css' %}">
+    <link rel="stylesheet" href="{% static 'css/user-nav.css' %}">
     <link rel = "icon" href ="{% static 'images/logo.png' %}"
         type = "image/x-icon">
 </head>
@@ -15,16 +16,63 @@
 
 <div class="fixed-navbar">
     <a href="#home" class="logo">Home</a>
+    <div class="search">
+      <form method="get" onsubmit="return executeQuery()">
+          <input type="checkbox" id="trigger" name="q" class="search__checkbox" />
+          <label class="search__label-init" for="trigger"></label>
+          <label class="search__label-active" for="trigger"></label>
+          <div class="search__border"></div>
+          <input type="text" class="search__input" />
+          <div class="search__close"></div>
+      </form>
+    </div>
     <ul>
-        <li><a href="{% url 'change_name' %}">Setting</a></li>
-        <li><a href="#name">{{request.user.first_name}}</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li><a href="{% url 'change_name' %}">Edit Profile</a></li>
     </ul>
 </div>
 <div class="main-content">
-<p>{{request.user.email}}</p>
-<p>{{request.user.first_name}}</p>
-<p><a href="{% url 'change_name' %}">Change name</a></p>
-<a href="{% url 'logout' %}">Logout</a>
+    <div class="profile-image">
+        <img class="cover-image common" src="{% static 'images/cover.jpg' %}">
+        <img class="display-image common" src="{% static 'images/brats-MF.jpg' %}">
+    </div>
+    <div class="name-container">
+        <h1>{{request.user.first_name}} {{request.user.last_name}}</h1>
+        <p>@{{request.user.username}}</p>
+    </div>
+    <div class="row">
+        <div class="column side">
+            <div class="box">
+                <div class="bio">
+                    <h1>Bio</h1>
+                    <p>{{request.user.bio}}</p>
+                </div><br>
+                <div class="bio">
+                    <h1>Country</h1>
+                    <p>{{request.user.country}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="column middle">
+            <div class="box">
+                <p>{{request.user.email}}</p>
+                <p>{{request.user.first_name}}</p>
+            </div>
+        </div>
+        <div class="column side">
+            <div class="box">
+                <h1>Friends</h1>
+            </div>
+        </div>
+    </div>
 </div>
+<script type="text/javascript">
+    function executeQuery(){
+        var query = document.getElementById("trigger").value;
+        window.location.replace("{% url 'search' %}?q=" + query)
+        return false
+    }
+
+</script>
 </body>
 </html>

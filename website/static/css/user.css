@@ -7,7 +7,7 @@
 
 .fixed-navbar {
   overflow: hidden;
-  background-color: #71c9ce;
+  background-color: #3e4149;
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
@@ -22,7 +22,7 @@
 .fixed-navbar ul li a {
   float: right;
   display: block;
-  color: #231e23;
+  color: #ff9999;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -33,7 +33,7 @@
 .logo{
   float: left;
   display: block;
-  color: #231e23;
+  color: #ff9999;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -43,10 +43,62 @@
 
 /* Change background on mouse-over */
 .fixed-navbar a:hover {
-  background: #e3fdfd;
-  color: #d99879;
+  background: #444f5a;
+  color: #ffc8c8;
 }
 
 .main-content{
-  margin-top: 50px; /* Add a top margin to avoid content overlay */
+  margin-top: 45px; /* Add a top margin to avoid content overlay */
+}
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.column.side {
+  width: 25%;
+}
+
+.column.middle {
+  width: 50%;
+}
+
+.box{
+  width: 100%;
+  padding: 10px;
+}
+
+
+.profile-image{
+  width: 100vw;
+  height: 30vh;
+  margin-bottom: 100px;
+  position: relative;
+  padding: 0;
+}
+
+.common{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cover-image{
+  width: 100vw;
+  height: 30vh;
+}
+
+.display-image{
+  height: 200px;
+  width: 200px;
+  padding: 10px;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 0);
+}
+
+.name-container{
+  text-align: center;
 }

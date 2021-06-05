@@ -16,3 +16,4 @@ class AccountAdmin(UserAdmin):
 
 
 admin.site.register(UserData, AccountAdmin)
+admin.site.register(ImageModel)

@@ -13,7 +13,7 @@
         <h1>Complete Your Profile</h1>
     </div>
     <div class="form-container">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <p>{{ form.first_name.label }}</p>
             <p>{{ form.first_name }}</p>
@@ -21,8 +21,8 @@
             <p>{{ form.last_name.label }}</p>
             <p>{{ form.last_name }}</p>
 
-            <p>{{ form.country.label }}</p>
-            <p>{{ form.country }}</p>
+            <p>{{ form.profile_image.label }}</p>
+            <p>{{ form.profile_image }}</p>
 
             <p>{{ form.bio.label }}</p>
             <p>{{ form.bio }}</p>

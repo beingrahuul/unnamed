@@ -18,5 +18,9 @@ class CompleteProfile(UserChangeForm):
 
     class Meta:
         model = UserData
-        fields = ['first_name', 'last_name']
+        fields = ['first_name', 'last_name', 'profile_image']
 
+
+class ImageUploadForm(forms.Form):
+    name = forms.CharField(max_length=10)
+    image = forms.ImageField()
